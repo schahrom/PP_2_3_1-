@@ -19,4 +19,9 @@ public class UserDaoImpl implements UserDao {
         return entityManager.createQuery("select u from UserEntity u", UserEntity.class)
                 .getResultList();
     }
+
+    @Override
+    public void save(UserEntity userEntity) {
+        entityManager.persist(userEntity);
+    }
 }

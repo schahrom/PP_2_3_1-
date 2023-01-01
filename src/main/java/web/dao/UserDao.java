@@ -7,4 +7,6 @@ import java.util.List;
 public interface UserDao {
 
     List<UserEntity> getAllUser();
+
+    void save(UserEntity userEntity);
 }

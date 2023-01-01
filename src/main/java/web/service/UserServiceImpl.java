@@ -20,4 +20,11 @@ public class UserServiceImpl implements UserService {
     public List<UserEntity> getAllUser() {
         return userDao.getAllUser();
     }
+
+
+    @Override
+    @Transactional
+    public void save(UserEntity userEntity) {
+        userDao.save(userEntity);
+    }
 }

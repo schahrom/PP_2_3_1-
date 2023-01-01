@@ -5,14 +5,24 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user", schema = "mydbtest", catalog = "")
 public class UserEntity {
-    private int id;
-    private String name;
-    private String surname;
-    private Integer age;
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
+    private int id;
+    @Basic
+    @Column(name = "name", nullable = true, length = 45)
+    private String name;
+    @Basic
+    @Column(name = "surname", nullable = true, length = 45)
+    private String surname;
+    @Basic
+    @Column(name = "age", nullable = true)
+    private Integer age;
+
+    public UserEntity() {
+    }
+
+
     public int getId() {
         return id;
     }
@@ -21,8 +31,7 @@ public class UserEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name", nullable = true, length = 45)
+
     public String getName() {
         return name;
     }
@@ -31,8 +40,7 @@ public class UserEntity {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "surname", nullable = true, length = 45)
+
     public String getSurname() {
         return surname;
     }
@@ -41,8 +49,7 @@ public class UserEntity {
         this.surname = surname;
     }
 
-    @Basic
-    @Column(name = "age", nullable = true)
+
     public Integer getAge() {
         return age;
     }
