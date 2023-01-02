@@ -27,4 +27,22 @@ public class UserServiceImpl implements UserService {
     public void save(UserEntity userEntity) {
         userDao.save(userEntity);
     }
+
+    @Override
+    @Transactional
+    public UserEntity show(int id) {
+        return userDao.show(id);
+    }
+
+    @Override
+    @Transactional
+    public void update(int id, UserEntity userEntity) {
+        userDao.update(id, userEntity);
+    }
+
+    @Override
+    @Transactional
+    public void delete(int id) {
+        userDao.delete(id);
+    }
 }
