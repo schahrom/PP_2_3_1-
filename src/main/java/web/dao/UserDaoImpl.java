@@ -7,6 +7,7 @@ import web.model.UserEntity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -28,9 +29,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public UserEntity show(int id) {
-        Query query = entityManager.createQuery("from UserEntity where id = : number");
-        query.setParameter("number", id);
-        return (UserEntity) query.getResultList().get(0);
+        return entityManager.find(UserEntity.class, id);
     }
 
     @Override
@@ -45,6 +44,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void delete(int id) {
-        entityManager.remove(show(id));
+        javax.persistence.Query q= entityManager.createQuery("delete from UserEntity where id = :id");
+        q.setParameter("id", id);
+        int deletedRows = q.executeUpdate();
     }
 }

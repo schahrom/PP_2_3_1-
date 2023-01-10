@@ -1,22 +1,18 @@
 package web.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user", schema = "mydbtest", catalog = "")
 public class UserEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Basic
-    @Column(name = "name", nullable = true, length = 45)
     private String name;
-    @Basic
-    @Column(name = "surname", nullable = true, length = 45)
     private String surname;
-    @Basic
-    @Column(name = "age", nullable = true)
     private Integer age;
 
     public UserEntity() {

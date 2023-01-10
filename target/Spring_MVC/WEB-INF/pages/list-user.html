@@ -25,6 +25,7 @@
       <a th:href="@{/people/edit/{id}(id=${user.getId()})}"
          class="btn btn-primary">Update</a>
       <form th:method="DELETE" th:action="@{/people/{id}(id = ${user.getId()})}">
+        <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Delete"/>
       </form>
     </td>

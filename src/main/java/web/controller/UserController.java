@@ -43,7 +43,7 @@ public class UserController {
         return "edit";
     }
 
-    @PostMapping ("/{id}")
+    @PatchMapping("/{id}")
     public String update(@ModelAttribute("user") UserEntity userEntity,
                          @PathVariable("id") int id) {
         userService.update(id, userEntity);
